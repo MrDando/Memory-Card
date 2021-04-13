@@ -1,7 +1,7 @@
 header {
     padding: 1em 2em;
-    background-color:#edc8b8;
-    color: #ab3b61;
+    background-color: var(--primary);
+    color: var(--quinary);
     font-weight: bold;
 }
 

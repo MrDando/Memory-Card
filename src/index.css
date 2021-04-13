@@ -1,3 +1,11 @@
+:root {
+  --primary: #edc8b8;
+  --secondary: #ede2dc;
+  --tertiary: #bbb2b5;
+  --quaternary: #123d6a;
+  --quinary: #ab3b61;
+}
+
 body {
   margin: 0;
   font-family: 'Overpass', sans-serif;

@@ -1,1 +1,20 @@
+.flex {
+  display: flex;
+}
 
+.column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: 'Permanent Marker', cursive;
+}

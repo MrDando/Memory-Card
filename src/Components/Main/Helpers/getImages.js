@@ -10,9 +10,9 @@ function getImages() {
             const id = i
             i = i + 1
 
-            const image = { id: id, 
-                url: url,
-                selected: false}
+            const image = { 
+                id: id, 
+                url: url}
 
             images.push(image)
         }

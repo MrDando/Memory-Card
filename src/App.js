@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState } from 'react';
 
 import './App.css';
 
@@ -10,10 +10,25 @@ function App() {
   const [score, setScore] = useState(0)
   const [highscore, setHighscore] = useState(0)
 
+  function increaseScore() {
+    setScore(score + 1)
+  }
+
+  function updateHighscore() {
+    if (score > highscore) {
+      setHighscore(score)
+    }
+    setScore(0)
+  }
+
   return (
     <div className='flex column'>
-      <Header score={score} highscore={highscore}/>
-      <Main />
+      <Header score={score} 
+              highscore={highscore}
+      />
+      <Main increaseScore={increaseScore}
+            updateHighscore={updateHighscore}
+      />
     </div>
   );
 }

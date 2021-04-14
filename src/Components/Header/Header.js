@@ -15,7 +15,7 @@ function Header (props) {
                 </div>
                 <div>
                     <a href='https://github.com/MrDando/Memory-Card' target='_blank' rel="noreferrer">
-                        <i class="fab fa-github fa-2x"></i>
+                        <i className="fab fa-github fa-2x"></i>
                     </a>
                 </div>
             </div>

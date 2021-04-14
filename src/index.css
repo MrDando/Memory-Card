@@ -6,12 +6,10 @@
   --quinary: #ab3b61;
 }
 
-body {
-  margin: 0;
-  font-family: 'Overpass', sans-serif;
+html, body, #root, #root>div {
+  height: 100%
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Overpass', sans-serif;
 }

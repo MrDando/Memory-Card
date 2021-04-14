@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, {useState} from 'react';
 
 import './App.css';
 
@@ -28,6 +28,7 @@ function App() {
       />
       <Main increaseScore={increaseScore}
             updateHighscore={updateHighscore}
+            score={score}
       />
     </div>
   );

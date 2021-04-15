@@ -7,9 +7,9 @@ import getImages from './Helpers/getImages'
 function GameWon(props) {
 
     return (
-        <div>
+        <div className='gameover flex column align-center'>
             <h2>Victory</h2>
-            <button onClick={props.resetGame}>Play Again?</button>
+            <button onClick={props.resetGame} style={{marginTop: '1em'}}>Play Again?</button>
         </div>
     )
 }
@@ -17,11 +17,13 @@ function GameWon(props) {
 function GameLost(props) {
 
     return (
-        <div>
+        <div className='gameover flex column align-center'>
             <h2>You lose</h2>
-            <h3>Score</h3>
-            <p>{props.score}</p>
-            <button onClick={props.resetGame}>Try Again?</button>
+            <div className='score-display flex align-center' style={{margin:'1em 0'}}>
+                <p>Score:</p>
+                <p style={{marginLeft: '0.5em'}}>{props.score}</p>
+            </div>
+            <button onClick={props.resetGame}>Try Again ?</button>
         </div>
     )
 }
@@ -50,7 +52,7 @@ function Main(props) {
 
     useEffect(() => {
         if(props.score === images.length) {
-            setGamestate('gameWon')         
+            endGame('win')         
         }
     },[props.score])
 
@@ -65,9 +67,18 @@ function Main(props) {
         return shuffledArray
     }
 
-    function resetGame() {
+    function endGame(type) {
         props.updateHighscore()
+        if (type === 'win') {
+            setGamestate('gameWon')
+        } else {
+            setGamestate('gameLost')
+        }
+    }
+
+    function resetGame() {
         setSelected([])
+        props.resetScore()
         setGamestate('inProgress')
     }
 
@@ -75,7 +86,7 @@ function Main(props) {
         const cardID = e.target.dataset.id - 1
 
         if (selected.includes(cardID)) {
-            setGamestate('gameLost')
+            endGame('lost')
         } else {
             setSelected(selected.concat(cardID))
             props.increaseScore()

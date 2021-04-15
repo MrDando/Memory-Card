@@ -15,7 +15,12 @@
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 44px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+h2 {
+  font-size: 34px;
   font-family: 'Permanent Marker', cursive;
 }
 

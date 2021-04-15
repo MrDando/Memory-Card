@@ -18,6 +18,9 @@ function App() {
     if (score > highscore) {
       setHighscore(score)
     }
+  }
+
+  function resetScore() {
     setScore(0)
   }
 
@@ -28,6 +31,7 @@ function App() {
       />
       <Main increaseScore={increaseScore}
             updateHighscore={updateHighscore}
+            resetScore={resetScore}
             score={score}
       />
     </div>

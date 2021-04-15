@@ -27,3 +27,27 @@ main img {
 main img:hover {
     transform: scale(1.05);
 }
+
+.gameover {
+    height: fit-content;
+    padding: 2em 5em;
+    margin-top: 2em;
+    color: var(--primary);
+    background-color: var(--quinary);
+    border: 4px solid var(--quaternary);
+    border-radius: 10%;
+}
+
+.gameover p {
+    font-size: 24px;
+}
+
+.gameover button {
+    padding: 0.2em 0.5em;
+    font-size: 16px;
+    font-family: 'Overpass', sans-serif;
+    color: var(--quinary);
+    background-color: var(--primary);
+    border: 2px solid var(--quaternary);
+    border-radius: 5px;
+}

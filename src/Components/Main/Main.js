@@ -12,12 +12,44 @@ function Main(props) {
     const images = getImages()
     const [selected, setSelected] = useState([])
     const [gamestate, setGamestate] = useState('inProgress')
+    const [thisRoundCards, setThisRoundCards] = useState([])
 
     useEffect(() => {
         if(props.score === images.length) {
             endGame('win')         
+        } else {
+            pickCards(10)
         }
     },[props.score])
+
+    function pickCards(NumberOfCards) {
+        let roundCards = []
+        let roundCardsIds = []
+
+        let firstcardPicked = false
+
+        while(!firstcardPicked) {
+            const firstCard = images[Math.floor(Math.random() * images.length)];
+
+            if(!selected.includes(firstCard.id-1)) {
+                firstcardPicked = true
+                roundCards = roundCards.concat(firstCard)
+                roundCardsIds.push(firstCard.id)
+            }
+        }
+
+        while (roundCards.length < NumberOfCards) {
+            const card = images[Math.floor(Math.random() * images.length)];
+
+            if(!roundCardsIds.includes(card.id)) {
+                roundCards = roundCards.concat(card)
+                roundCardsIds.push(card.id)
+            }
+        }
+
+        roundCards = shuffleArray(roundCards)
+        setThisRoundCards(roundCards)
+    }
 
     function shuffleArray(array) {
         let shuffledArray = [...array]
@@ -58,7 +90,7 @@ function Main(props) {
     
     return (
         <main className='flex justify-center'>
-            {gamestate === 'inProgress' ? <Board  cards={shuffleArray(images)} selectCard={selectCard}/> : null}
+            {gamestate === 'inProgress' ? <Board  cards={thisRoundCards} selectCard={selectCard}/> : null}
             {gamestate === 'gameWon' ? <GameWon resetGame={resetGame} /> : null}
             {gamestate === 'gameLost' ? <GameLost resetGame={resetGame} score={props.score} /> : null}
         </main>

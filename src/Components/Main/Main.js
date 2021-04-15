@@ -3,46 +3,9 @@ import React, { useEffect, useState} from 'react'
 import './Main.css'
 
 import getImages from './Helpers/getImages'
-
-function GameWon(props) {
-
-    return (
-        <div className='gameover flex column align-center'>
-            <h2>Victory</h2>
-            <button onClick={props.resetGame} style={{marginTop: '1em'}}>Play Again?</button>
-        </div>
-    )
-}
-
-function GameLost(props) {
-
-    return (
-        <div className='gameover flex column align-center'>
-            <h2>You lose</h2>
-            <div className='score-display flex align-center' style={{margin:'1em 0'}}>
-                <p>Score:</p>
-                <p style={{marginLeft: '0.5em'}}>{props.score}</p>
-            </div>
-            <button onClick={props.resetGame}>Try Again ?</button>
-        </div>
-    )
-}
-
-function Board(props) {
-
-    return(
-        <div className='flex gameboard'>
-            {props.cards.map(card => {
-            return (
-                <div className='card' key={card.id}>
-                    <img src={card.url} alt='' data-id={card.id} onClick={props.selectCard}></img>
-                </div>
-            )
-            })}
-        </div>
-    )
-
-}
+import GameLost from './Components/GameLost'
+import GameWon from './Components/GameWon'
+import Board from './Components/Board'
 
 function Main(props) {
 

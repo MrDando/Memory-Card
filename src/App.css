@@ -24,6 +24,11 @@ h2 {
   font-family: 'Permanent Marker', cursive;
 }
 
+h3 {
+  font-size: 28px;
+  font-family: 'Permanent Marker', cursive;
+}
+
 .container {
   height: inherit;
 }

@@ -17,8 +17,6 @@ main .flip-card {
     margin: 20px 20px;
     height: 200px;
     width: 150px;
-    border-radius: 10px;
-    overflow: hidden;
     background-color: transparent;
 }
 
@@ -41,20 +39,20 @@ main .flip-card {
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 3px 4px 8px 0 rgba(0, 0, 0, 0.3), 3px 6px 20px 0 rgba(0, 0, 0, 0.28);
 }
 
 .flip-card-front img {
     height: 100%;
     width: 100%;
     border-radius: 10px;
-    overflow: hidden;
 }
 
 .flip-card-back {
     background-color: var(--primary);
     color: var(--quaternary);
     border-radius: 10px;
-    overflow: hidden;
     transform: rotateY(180deg);
 }
 

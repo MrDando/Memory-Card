@@ -6,7 +6,7 @@ function Header (props) {
     return (
         <header className='flex justify-center align-center'>
             <div style={{marginLeft: 'auto'}}>
-                <h1>Memory Game</h1>
+                <h1 style={{marginLeft: '15vW'}}>Memory Game</h1>
             </div>
             <div className='flex right-section'>
                 <div className='flex column' style={{marginRight: '15vW'}}>

@@ -18,7 +18,6 @@ main .flip-card {
     height: 200px;
     width: 150px;
     border-radius: 10px;
-    transition: transform 0.2s;
     overflow: hidden;
     background-color: transparent;
 }
@@ -28,7 +27,7 @@ main .flip-card {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s;
+    transition: transform 1.5s;
     transform-style: preserve-3d;
 }
 

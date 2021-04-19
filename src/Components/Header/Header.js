@@ -13,7 +13,7 @@ function Header (props) {
                     <p>Score: {props.score}</p>
                     <p>Highscore: {props.highscore}</p>
                 </div>
-                <div>
+                <div className='flex column justify-center'>
                     <a href='https://github.com/MrDando/Memory-Card' target='_blank' rel="noreferrer">
                         <i className="fab fa-github fa-2x"></i>
                     </a>

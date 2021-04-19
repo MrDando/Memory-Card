@@ -9,6 +9,10 @@ header .right-section {
     margin-left: auto;
 }
 
+header p {
+    margin: 0.2em 0;
+}
+
 header a {
     color: inherit;
 }

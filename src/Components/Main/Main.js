@@ -10,7 +10,8 @@ function Main(props) {
 
     const images = getImages()
     const [selected, setSelected] = useState([])
-    const [boardClass, setBoardClass] = useState('flip-board-inner')
+    const [gamestarted, setGamestarted] = useState(true)
+    const [boardClass, setBoardClass] = useState('flip-board-inner is-flipped')
     const [gameOverType, setGameOverType] = useState('')
     const [thisRoundCards, setThisRoundCards] = useState([])
 
@@ -62,6 +63,11 @@ function Main(props) {
         return shuffledArray
     }
 
+    function startGame() {
+        setBoardClass('flip-board-inner')
+        setTimeout(function(){setGamestarted(false)}, 1000)
+    }
+
     function endGame(type) {
         props.updateHighscore()
         setGameOverType(type)
@@ -94,7 +100,12 @@ function Main(props) {
                             <Board cards={thisRoundCards} selectCard={selectCard} />
                         </div>
                         <div className='flip-board-back'>
-                            <GameOver score={props.score} resetGame={resetGame} type={gameOverType} cardNumber={images.length}/>
+                            <GameOver   score={props.score}
+                                        startGame={startGame}
+                                        resetGame={resetGame} 
+                                        type={gameOverType} 
+                                        cardNumber={images.length} 
+                                        gamestarted={gamestarted}/>
                         </div>
                     </div>
                 </div>

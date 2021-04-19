@@ -77,7 +77,7 @@ function Main(props) {
 
     function resetGame() {
         setSelected([])
-        props.resetScore()
+        setTimeout(function(){props.resetScore()}, 500)
         setBoardClass('flip-board-inner')
     }
 

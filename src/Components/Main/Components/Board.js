@@ -5,13 +5,13 @@ function Board(props) {
     let [cardClass, setCardClass] = useState('flip-card-inner is-flipped')
 
     useEffect(() => {
-        setTimeout(function(){setCardClass('flip-card-inner')}, 1000)
+        setTimeout(function(){setCardClass('flip-card-inner')}, 700)
     },[props])
 
     function flipCard(e) {
         setCardClass('flip-card-inner is-flipped')
 
-        setTimeout(function(){props.selectCard(e)}, 1000)
+        setTimeout(function(){props.selectCard(e)}, 700)
 
     }
 

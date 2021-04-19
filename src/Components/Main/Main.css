@@ -4,23 +4,13 @@ main {
     padding-top: 3em;
 }
 
-main .gameboard {
-    flex-wrap: wrap;
-    height: fit-content;
-    max-width: 950px;
-    background-color: var(--quinary);
-    border: 5px solid var(--quaternary);
-    border-radius: 10px;
-}
-
-main .flip-card {
-    margin: 20px 20px;
-    height: 200px;
-    width: 150px;
+.flip-board {
     background-color: transparent;
+    height: 490px;
+    width: 960px;
 }
 
-.flip-card-inner {
+.flip-board-inner, .flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
@@ -29,11 +19,15 @@ main .flip-card {
     transform-style: preserve-3d;
 }
 
-.flip-card-inner.is-flipped {
-    transform: rotateY(180deg);
+.flip-board-inner.is-flipped {
+    transform: rotateX(180deg);
 }
-  
-.flip-card-front, .flip-card-back {
+
+.flip-board-front {
+    transform: translateZ(1px);
+}
+
+.flip-board-front, .flip-board-back, .flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -43,36 +37,63 @@ main .flip-card {
     box-shadow: 3px 4px 8px 0 rgba(0, 0, 0, 0.3), 3px 6px 20px 0 rgba(0, 0, 0, 0.28);
 }
 
+.flip-board-back, .flip-card-back {
+    background-color: var(--primary);
+    color: var(--quaternary);
+    border-radius: 10px;
+}
+
+.flip-board-back {
+    transform: translateZ(-1px) rotateX(180deg);
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+
+.gameboard {
+    flex-wrap: wrap;
+    height: fit-content;
+    background-color: var(--quinary);
+    border: 5px solid var(--quaternary);
+    border-radius: 10px;
+}
+
+.flip-card {
+    margin: 20px 20px;
+    height: 200px;
+    width: 150px;
+    background-color: transparent;
+}
+
+.flip-card-inner.is-flipped {
+    transform: rotateY(180deg);
+}
+
 .flip-card-front img {
     height: 100%;
     width: 100%;
     border-radius: 10px;
 }
-
-.flip-card-back {
-    background-color: var(--primary);
-    color: var(--quaternary);
-    border-radius: 10px;
-    transform: rotateY(180deg);
-}
-
 .gameover {
-    height: fit-content;
-    padding: 2em 5em;
-    margin-top: 2em;
+    justify-content: center;
+    height: 100%;
     color: var(--primary);
     background-color: var(--quinary);
     border: 4px solid var(--quaternary);
-    border-radius: 10%;
+    border-radius: 10px;
 }
 
 .gameover p {
+    margin: 1em 0;
     font-size: 24px;
 }
 
 .gameover button {
-    padding: 0.2em 0.5em;
-    font-size: 16px;
+    width: fit-content;
+    padding: 0.4em 0.7em;
+    font-size: 20px;
     font-family: 'Overpass', sans-serif;
     color: var(--quinary);
     background-color: var(--primary);

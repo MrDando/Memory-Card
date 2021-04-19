@@ -3,15 +3,15 @@ import React, { useEffect, useState} from 'react'
 import './Main.css'
 
 import getImages from './Helpers/getImages'
-import GameLost from './Components/GameLost'
-import GameWon from './Components/GameWon'
+import GameOver from './Components/GameOver'
 import Board from './Components/Board'
 
 function Main(props) {
 
     const images = getImages()
     const [selected, setSelected] = useState([])
-    const [gamestate, setGamestate] = useState('inProgress')
+    const [boardClass, setBoardClass] = useState('flip-board-inner')
+    const [gameOverType, setGameOverType] = useState('')
     const [thisRoundCards, setThisRoundCards] = useState([])
 
     useEffect(() => {
@@ -64,17 +64,15 @@ function Main(props) {
 
     function endGame(type) {
         props.updateHighscore()
-        if (type === 'win') {
-            setGamestate('gameWon')
-        } else {
-            setGamestate('gameLost')
-        }
+        setGameOverType(type)
+        setBoardClass('flip-board-inner is-flipped')
+        
     }
 
     function resetGame() {
         setSelected([])
         props.resetScore()
-        setGamestate('inProgress')
+        setBoardClass('flip-board-inner')
     }
 
     function selectCard(e) {
@@ -90,10 +88,17 @@ function Main(props) {
     
     return (
         <main className='flex justify-center'>
-            {gamestate === 'inProgress' ? <Board  cards={thisRoundCards} selectCard={selectCard}/> : null}
-            {gamestate === 'gameWon' ? <GameWon resetGame={resetGame} /> : null}
-            {gamestate === 'gameLost' ? <GameLost resetGame={resetGame} score={props.score} /> : null}
-        </main>
+            <div className='flip-board'>
+                    <div className={boardClass}>
+                        <div className='flip-board-front'>
+                            <Board cards={thisRoundCards} selectCard={selectCard} />
+                        </div>
+                        <div className='flip-board-back'>
+                            <GameOver score={props.score} resetGame={resetGame} type={gameOverType} cardNumber={images.length}/>
+                        </div>
+                    </div>
+                </div>
+    </main>
     )
 }
 
